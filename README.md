@@ -56,20 +56,20 @@ LaravelPrismicHelper::language('nl')->getSingle(type);
 
 You have the following functions available to you:
 
-| *Function*                                 | *Returns*                                        |
-|--------------------------------------------|--------------------------------------------------|
-| `prismic_as_text($content, $key)`          | Plain text content                               |
-| `prismic_as_html($content, $key)`          | Html content                                     |
-| `prismic_as_date($content, $key, $format)` | ISO date format using Carbon::isoFormat($format) |
-| `prismic_file_url($content, $key)`         | File Url                                         |
-| `prismic_image_url($content, $key)`        | Image Url                                        |
-| `prismic_image_alt($content, $key)`        | Image Alt Text                                   |
+| *Function*                                 | *Returns*                                          |
+|--------------------------------------------|----------------------------------------------------|
+| `prismic_as_text($content, $key)`          | Plain text content                                 |
+| `prismic_as_html($content, $key)`          | Html content                                       |
+| `prismic_as_date($content, $key, $format)` | ISO date format using `Carbon::isoFormat($format)` |
+| `prismic_file_url($content, $key)`         | File Url                                           |
+| `prismic_image_url($content, $key)`        | Image Url                                          |
+| `prismic_image_alt($content, $key)`        | Image Alt Text                                     |
 
 #### Examples:
 ``` html
 <h1>{{ prismic_as_text($content, 'subtitle') }}<h1>
 
-<img src="{{ prismic_image_url($content, 'image') }}" alt="prismic_image_alt($content, 'image')" />
+<img src="{{ prismic_image_url($content, 'image') }}" alt="{{ prismic_image_alt($content, 'image') }}" />
 
 <span>{{ prismic_as_date($content, 'created_at', 'LL') }}</span>
 ```
