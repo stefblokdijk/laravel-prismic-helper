@@ -1,0 +1,58 @@
+{
+    "name": "stefblokdijk/laravel-prismic-helper",
+    "description": "Prismic Helper for Laravel",
+    "keywords": [
+        "Bruno Digital",
+        "laravel-prismic-helper"
+    ],
+    "homepage": "https://github.com/stefblokdijk/laravel-prismic-helper",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Stef Blokdijk",
+            "email": "info@stefblokdijk.sr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*",
+        "prismic/php-sdk": "5.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "stefblokdijk\\LaravelPrismicHelper\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "stefblokdijk\\LaravelPrismicHelper\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "stefblokdijk\\LaravelPrismicHelper\\LaravelPrismicHelperServiceProvider"
+            ],
+            "aliases": {
+                "Prismic": "stefblokdijk\\LaravelPrismicHelper\\LaravelPrismicHelperFacade"
+            }
+        }
+    }
+}
