@@ -15,10 +15,71 @@ You can install the package via composer:
 composer require stefblokdijk/laravel-prismic-helper
 ```
 
-## Usage
+## Examples
 
+#### Get Content from a single type
 ``` php
-// Coming Soon
+use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
+
+LaravelPrismicHelper::getSingle($type);
+```
+
+#### Get Content from UID
+``` php
+use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
+
+LaravelPrismicHelper::getByUID($uid, $type);
+```
+
+#### Get all items by an given type. This will return an collection
+``` php
+use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
+
+LaravelPrismicHelper::getByType($type);
+```
+
+#### You can also filter using the `getByType` function:
+``` php
+use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
+
+// filter by tag
+LaravelPrismicHelper::getByType($type, [
+    'tags' => ['highlighted']
+]);
+
+// sort by by field (https://prismic.io/docs/php/query-the-api/order-your-result)
+LaravelPrismicHelper::getByType($type, [
+    'orderings' => '[my.news.date desc]'
+]);
+```
+
+#### Query by Language
+``` php
+use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
+
+LaravelPrismicHelper::language('nl')->getSingle(type);
+```
+
+## How to use in Blade templating
+
+You have the following functions available to you:
+
+| *Function*                                 | *Returns*                                        |
+|--------------------------------------------|--------------------------------------------------|
+| `prismic_as_text($content, $key)`          | Plain text content                               |
+| `prismic_as_html($content, $key)`          | Html content                                     |
+| `prismic_as_date($content, $key, $format)` | ISO date format using Carbon::isoFormat($format) |
+| `prismic_file_url($content, $key)`         | File Url                                         |
+| `prismic_image_url($content, $key)`        | Image Url                                        |
+| `prismic_image_alt($content, $key)`        | Image Alt Text                                   |
+
+#### Examples:
+``` html
+<h1>{{ prismic_as_text($content, 'subtitle') }}<h1>
+
+<img src="{{ prismic_image_url($content, 'image') }}" alt="prismic_image_alt($content, 'image')" />
+
+<span>{{ prismic_as_date($content, 'created_at', 'LL') }}</span>
 ```
 
 ### Changelog

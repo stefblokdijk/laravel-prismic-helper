@@ -70,7 +70,7 @@ class LaravelPrismicHelper
     }
 
     /**
-     * Get all articles by an given type
+     * Get all items by an given type
      *
      * @param  string $type
      * @param  array  $filters
