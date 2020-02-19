@@ -27,7 +27,7 @@ PRISMIC_LANGUAGE=nl
 
 #### Get Content from a single type
 ``` php
-use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
+use LaravelPrismicHelper;
 
 LaravelPrismicHelper::getSingle($type);
 ```
