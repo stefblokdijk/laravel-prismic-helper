@@ -26,22 +26,16 @@ LaravelPrismicHelper::getSingle($type);
 
 #### Get Content from UID
 ``` php
-use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
-
 LaravelPrismicHelper::getByUID($uid, $type);
 ```
 
 #### Get all items by an given type. This will return an collection
 ``` php
-use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
-
 LaravelPrismicHelper::getByType($type);
 ```
 
 #### You can also filter using the `getByType` function:
 ``` php
-use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
-
 // filter by tag
 LaravelPrismicHelper::getByType($type, [
     'tags' => ['highlighted']
@@ -55,8 +49,6 @@ LaravelPrismicHelper::getByType($type, [
 
 #### Query by Language
 ``` php
-use stefblokdijk\LaravelPrismicHelper\LaravelPrismicHelper;
-
 LaravelPrismicHelper::language('nl')->getSingle(type);
 ```
 
