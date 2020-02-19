@@ -2,7 +2,8 @@
     "name": "stefblokdijk/laravel-prismic-helper",
     "description": "Prismic Helper for Laravel",
     "keywords": [
-        "Bruno Digital",
+        "Laravel",
+        "Prismic",
         "laravel-prismic-helper"
     ],
     "homepage": "https://github.com/stefblokdijk/laravel-prismic-helper",
@@ -11,7 +12,7 @@
     "authors": [
         {
             "name": "Stef Blokdijk",
-            "email": "info@stefblokdijk.sr",
+            "email": "hello@stefblokdijk.sr",
             "role": "Developer"
         }
     ],
