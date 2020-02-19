@@ -72,6 +72,7 @@ You have the following functions available to you:
 | `prismic_file_url($content, $key)`         | File Url                                           |
 | `prismic_image_url($content, $key)`        | Image Url                                          |
 | `prismic_image_alt($content, $key)`        | Image Alt Text                                     |
+| `prismic_group($content, $key)`            | Collection of items                                |
 
 #### Examples:
 ``` html
@@ -80,6 +81,13 @@ You have the following functions available to you:
 <img src="{{ prismic_image_url($content, 'image') }}" alt="{{ prismic_image_alt($content, 'image') }}" />
 
 <span>{{ prismic_as_date($content, 'created_at', 'LL') }}</span>
+```
+
+#### Working with content groups
+```html
+@foreach(prismic_group($content, 'products') as $product)
+    <li>{{ prismic_as_text($product, 'name') }}</li>
+@endforeach
 ```
 
 ### Changelog
