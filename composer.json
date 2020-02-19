@@ -52,7 +52,7 @@
                 "stefblokdijk\\LaravelPrismicHelper\\LaravelPrismicHelperServiceProvider"
             ],
             "aliases": {
-                "Prismic": "stefblokdijk\\LaravelPrismicHelper\\LaravelPrismicHelperFacade"
+                "LaravelPrismicHelper": "stefblokdijk\\LaravelPrismicHelper\\LaravelPrismicHelperFacade"
             }
         }
     }
