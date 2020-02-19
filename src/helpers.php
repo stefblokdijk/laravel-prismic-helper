@@ -3,6 +3,21 @@
 use Prismic\Dom\RichText;
 use Carbon\Carbon;
 
+if (!function_exists('prismic_group')) {
+
+    /**
+     * convert prismic group to collection
+     *
+     * @param
+     * @return Collection
+     */
+    function prismic_group($content, $key)
+    {
+        return (isset($content->data->{$key}) && is_array($content->data->{$key})) ? collect($content->data->{$key}) : collect();
+    }
+
+}
+
 if (!function_exists('prismic_as_html')) {
 
     /**
@@ -13,7 +28,21 @@ if (!function_exists('prismic_as_html')) {
      */
     function prismic_as_html($content, $key)
     {
-        return isset($content->data->{$key}) ? RichText::asHtml($content->data->{$key}) : null;
+
+        if(isset($content->data->{$key})) {
+
+            RichText::asHtml($content->data->{$key});
+
+        } else if(isset($content->{$key})) {
+
+            RichText::asHtml($content->{$key});
+
+        } else {
+
+            return null;
+
+        }
+
     }
 
 }
@@ -28,7 +57,21 @@ if (!function_exists('prismic_as_text')) {
      */
     function prismic_as_text($content, $key)
     {
-        return isset($content->data->{$key}) ? RichText::asText($content->data->{$key}) : null;
+
+        if(isset($content->data->{$key})) {
+
+            RichText::asText($content->data->{$key});
+
+        } else if(isset($content->{$key})) {
+
+            RichText::asText($content->{$key});
+
+        } else {
+
+            return null;
+
+        }
+
     }
 
 }
@@ -45,7 +88,21 @@ if (!function_exists('prismic_as_date')) {
      */
     function prismic_as_date($content, $key, $format)
     {
-        return isset($content->data->{$key}) ? (string) Carbon::parse($content->data->{$key})->isoFormat($format) : null;
+
+        if(isset($content->data->{$key})) {
+
+            Carbon::parse($content->data->{$key})->isoFormat($format);
+
+        } else if(isset($content->{$key})) {
+
+            Carbon::parse($content->{$key})->isoFormat($format);
+
+        } else {
+
+            return null;
+
+        }
+
     }
 
 }
@@ -61,7 +118,21 @@ if (!function_exists('prismic_file_url')) {
      */
     function prismic_file_url($content, $key)
     {
-        return isset($content->data->{$key}->url) ? $content->data->{$key}->url : null;
+
+        if(isset($content->data->{$key}->url)) {
+
+            return $content->data->{$key}->url;
+
+        } else if(isset($content->{$key}->url)) {
+
+            return $content->{$key}->url;
+
+        } else {
+
+            return null;
+
+        }
+
     }
 
 }
@@ -77,7 +148,20 @@ if (!function_exists('prismic_image_url')) {
      */
     function prismic_image_url($content, $key)
     {
-        return isset($content->data->{$key}->url) ? $content->data->{$key}->url : null;
+
+        if(isset($content->data->{$key}->url)) {
+
+            return $content->data->{$key}->url;
+
+        } else if(isset($content->{$key}->url)) {
+
+            return $content->{$key}->url;
+
+        } else {
+
+            return null;
+
+        }
     }
 
 }
@@ -93,7 +177,20 @@ if (!function_exists('prismic_image_alt')) {
      */
     function prismic_image_alt($content, $key)
     {
-        return isset($content->data->{$key}->alt) ? $content->data->{$key}->alt : null;
+
+        if(isset($content->data->{$key}->alt)) {
+
+            return $content->data->{$key}->alt;
+
+        } else if(isset($content->{$key}->alt)) {
+
+            return $content->{$key}->alt;
+
+        } else {
+
+            return null;
+
+        }
     }
 
 }
