@@ -31,11 +31,11 @@ if (!function_exists('prismic_as_html')) {
 
         if(isset($content->data->{$key})) {
 
-            RichText::asHtml($content->data->{$key});
+            return RichText::asHtml($content->data->{$key});
 
         } else if(isset($content->{$key})) {
 
-            RichText::asHtml($content->{$key});
+            return RichText::asHtml($content->{$key});
 
         } else {
 
@@ -60,11 +60,11 @@ if (!function_exists('prismic_as_text')) {
 
         if(isset($content->data->{$key})) {
 
-            RichText::asText($content->data->{$key});
+            return RichText::asText($content->data->{$key});
 
         } else if(isset($content->{$key})) {
 
-            RichText::asText($content->{$key});
+            return RichText::asText($content->{$key});
 
         } else {
 
@@ -91,11 +91,11 @@ if (!function_exists('prismic_as_date')) {
 
         if(isset($content->data->{$key})) {
 
-            Carbon::parse($content->data->{$key})->isoFormat($format);
+            return Carbon::parse($content->data->{$key})->isoFormat($format);
 
         } else if(isset($content->{$key})) {
 
-            Carbon::parse($content->{$key})->isoFormat($format);
+            return Carbon::parse($content->{$key})->isoFormat($format);
 
         } else {
 
