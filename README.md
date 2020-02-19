@@ -15,6 +15,16 @@ You can install the package via composer:
 composer require stefblokdijk/laravel-prismic-helper
 ```
 
+Add the following to your `.env` file
+```
+PRISMIC_REPOSITORY_URL=https://example.cdn.prismic.io/api/v2
+```
+
+If you are using a multilanguage repository, you can also set the default language in your `.env`
+```
+PRISMIC_LANGUAGE=nl
+```
+
 ## Examples
 
 #### Get Content from a single type
