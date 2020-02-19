@@ -52,7 +52,7 @@ LaravelPrismicHelper::getByType($type, [
 LaravelPrismicHelper::language('nl')->getSingle(type);
 ```
 
-## How to use in Blade templating
+## Helper functions for Blade templating
 
 You have the following functions available to you:
 
