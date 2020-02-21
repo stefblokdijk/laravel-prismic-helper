@@ -76,19 +76,24 @@ class LaravelPrismicHelper
      * @param  array  $filters
      * @return Collection
      */
-    public function getByType($type, $filters = [])
+    public function getByType($type, $options = [], $predicates = [])
     {
 
         /**
          * Get content
          */
         $query = $this->api->query(
-            Predicates::at('document.type', $type),
+            array_merge(
+                [
+                    Predicates::at('document.type', $type),
+                ],
+                $predicates
+            ),
             array_merge(
                 [
                     'lang' => $this->language
                 ],
-                $filters
+                $options
             ),
         );
 

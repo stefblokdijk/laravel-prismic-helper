@@ -44,14 +44,16 @@ LaravelPrismicHelper::getByType($type);
 
 #### You can also filter using the `getByType` function:
 ``` php
-// filter by tag
-LaravelPrismicHelper::getByType($type, [
-    'tags' => ['highlighted']
-]);
-
-// sort by by field (https://prismic.io/docs/php/query-the-api/order-your-result)
+// use options as second argument. Example: sort by by field (https://prismic.io/docs/php/query-the-api/order-your-result)
 LaravelPrismicHelper::getByType($type, [
     'orderings' => '[my.news.date desc]'
+]);
+
+// Use multiple predicates as third arguments. Example: fullText search for the category (https://prismic.io/docs/php/query-the-api/fulltext-search)
+use Prismic\Predicates;
+
+LaravelPrismicHelper::getByType($type, [], [
+    Predicates::fulltext('my.product.category', 'Some Category'),
 ]);
 ```
 
