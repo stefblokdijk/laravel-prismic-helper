@@ -94,7 +94,7 @@ class LaravelPrismicHelper
                     'lang' => $this->language
                 ],
                 $options
-            ),
+            )
         );
 
         /**
@@ -125,7 +125,7 @@ class LaravelPrismicHelper
             Predicates::at('document.type', $type),
             [
                 'lang' => $this->language,
-            ],
+            ]
         );
 
         /**
@@ -165,7 +165,7 @@ class LaravelPrismicHelper
             Predicates::at('my.'.$type.'.uid', $uid),
             [
                 'lang' => $this->language,
-            ],
+            ]
         );
 
         /**
