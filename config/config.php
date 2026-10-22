@@ -25,6 +25,6 @@ return [
     |
     */
 
-    'language' => env('PRISMIC_LANGUAGE', 'en'),
+    'language' => env('PRISMIC_LANGUAGE', 'en-us'),
 
 ];
